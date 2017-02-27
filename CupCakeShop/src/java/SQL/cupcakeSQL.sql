@@ -12,6 +12,14 @@ create table Topping
     price double
 );
 
+create table User
+(
+	id int primary key auto_increment,
+    email varchar(255) unique NOT NULL,
+    password varchar(255) NOT NULL,
+    name varchar(255) NOT NULL
+);
+
 insert into Bottom (type, price) values 
 ("Chocolate", 5.00),
 ("Vanilla", 5.00),
