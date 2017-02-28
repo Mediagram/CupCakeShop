@@ -31,9 +31,10 @@ public class CupcakeMapper {
             
             while (rs.next()) {
                 toppingName = rs.getString("type");
+                toppings.add(toppingName);
             }
             
-            toppings.add(toppingName);
+            
             
         } catch (Exception e) {
             //con.rollback();

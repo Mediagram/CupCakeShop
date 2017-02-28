@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
 
-    private ArrayList<String> getToppings = new ArrayList();
+    //private ArrayList<String> getToppings = new ArrayList();
     
     CupcakeMapper ccm;
     
@@ -27,8 +27,8 @@ public class FrontController extends HttpServlet {
         // From login page
         if (request.getParameter("login") != null) {
             
-            getToppings = ccm.getToppings();
-            request.setAttribute("list", getToppings);
+            
+            request.setAttribute("list", ccm.getToppings());
             
             // Do something...
             RequestDispatcher rd = request.getRequestDispatcher("/shop.jsp");

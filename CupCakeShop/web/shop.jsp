@@ -9,6 +9,7 @@
         <%@include file="inc/head.jsp" %>
     </head>
     <body>
+        
         <c:import url="/inc/header.jsp"/>
 
         <div class="container">
@@ -21,8 +22,9 @@
                     <select>
                         <option>Select topping...</option>
                         <c:forEach items="${list}" var="item">
-                            <option>${item}</option>
+                            <option><c:out value="${item}"/></option>
                         </c:forEach>
+                        
                     </select>
 
                     <select>
