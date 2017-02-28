@@ -1,0 +1,4 @@
+* {font-family: 'Raleway', sans-serif;}
+.frontpage {background: url(../img/login-background.jpg); background-size: 100%;}
+.login-container {position: absolute; right: 30px; top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.5); width: 320px; border-radius: 4px;}
+.login-container input, .btn {margin-bottom: 10px;}

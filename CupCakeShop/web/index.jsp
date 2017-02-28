@@ -8,17 +8,21 @@
         
         <c:import url="/inc/head.jsp"/>
     </head>
-    <body>
+    <body class="frontpage">
         <c:import url="/inc/header.jsp"/>
         
         <div class="container">
-            <h1>Hello anonymous</h1>
+            
 
-            <form action="FrontController" method="POST">
-                <input type="email" name="username" placeholder="Type in your email..." class="form-control">
-                <input type="password" name="password" placeholder="Type in your password..." class="form-control">
-                <div class="text-right"><input type="submit" value="Login" class="btn btn-primary" name="login"></div>
-            </form>
+            <div class="login-container">
+                <h1>CupCakeShop</h1>
+                <p>Please login:</p>
+                <form action="FrontController" method="POST">
+                    <input type="email" name="username" placeholder="Type in your email..." class="form-control">
+                    <input type="password" name="password" placeholder="Type in your password..." class="form-control">
+                    <div class="text-right"><input type="submit" value="Login" class="btn btn-primary" name="login"></div>
+                </form>
+            </div>
         
         </div>
         

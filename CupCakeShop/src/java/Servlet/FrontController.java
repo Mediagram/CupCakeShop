@@ -1,6 +1,8 @@
 package Servlet;
 
+import Backend.CupcakeMapper;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,14 +13,25 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
 
-
+    private ArrayList<String> getToppings = new ArrayList();
+    
+    CupcakeMapper ccm;
+    
+    public FrontController() throws Exception {
+        this.ccm = new CupcakeMapper();
+    }
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         // From login page
         if (request.getParameter("login") != null) {
             
+            getToppings = ccm.getToppings();
+            request.setAttribute("list", getToppings);
+            
             // Do something...
-            RequestDispatcher rd = request.getRequestDispatcher("/some_page.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("/shop.jsp");
             rd.forward(request, response);
         
             
