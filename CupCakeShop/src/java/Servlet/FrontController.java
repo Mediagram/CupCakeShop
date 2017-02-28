@@ -1,6 +1,7 @@
 package Servlet;
 
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +12,30 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet {
 
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-    {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        // From login page
+        if (request.getParameter("login") != null) {
+            
+            // Do something...
+            RequestDispatcher rd = request.getRequestDispatcher("/some_page.jsp");
+            rd.forward(request, response);
+        
+            
+            
+        // From another form    
+        } else if (request.getParameter("xxxx") != null) {
+            
+            // Do something..
+            RequestDispatcher rd = request.getRequestDispatcher("/another_page.jsp");
+            rd.forward(request, response);
+            
+        }
+        
+        
+        
+        
+        
         
     }
 
