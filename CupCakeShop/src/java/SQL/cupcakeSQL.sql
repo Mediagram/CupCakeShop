@@ -20,6 +20,12 @@ create table User
     name varchar(255) NOT NULL
 );
 
+create table Salt
+(
+    id int primary key auto_increment,
+    salt blob
+);
+
 insert into Bottom (type, price) values 
 ("Chocolate", 5.00),
 ("Vanilla", 5.00),
