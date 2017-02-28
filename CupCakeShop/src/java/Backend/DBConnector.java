@@ -22,7 +22,7 @@ public class DBConnector {
      *
      * @return
      */
-    public Connection connectDB()
+    public Connection getConnection()
     {
         Connection conn = null;
         try
