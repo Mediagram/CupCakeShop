@@ -5,16 +5,11 @@
  */
 package Backend;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Bade
  */
-public class Main
+public class Invoice
 {
-    public static void main(String[] args)
-    {
-
-    }
+    
 }
