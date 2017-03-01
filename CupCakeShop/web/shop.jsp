@@ -19,18 +19,20 @@
 
             <div class="col-sm-6">
                 <form action="FrontController" method="POST">
-                    <select>
+                    <select class="selectpicker">
                         <option>Select topping...</option>
-                        <c:forEach items="${list}" var="item">
+                        <c:forEach items="${list1}" var="item">
                             <option><c:out value="${item}"/></option>
                         </c:forEach>
-                        
                     </select>
 
                     <select>
-                        <<option></option>
+                        <option>Select bottom...</option>
+                        <c:forEach items="${list2}" var="item">
+                            <option><c:out value="${item}"/></option>
+                        </c:forEach>
                     </select>
-
+                    <input type="submit" value="Add to basket">
                 </form>
             </div>
 
