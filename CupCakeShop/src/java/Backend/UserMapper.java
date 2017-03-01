@@ -21,9 +21,10 @@ public class UserMapper
 {
     public User loginUser(String email, String password)
     {
-        // password = HashEncoder.get_SHA_256_SecurePassword(password, null);
         String sql = "select * from User where email = ? and password = ?";
         Connection con = new DBConnector().getConnection();
+        byte[] salt = HashEncoder.getSalt();
+        password = HashEncoder.get_SHA_256_SecurePassword(password, salt);
         User user = null;
         
         try
@@ -49,14 +50,15 @@ public class UserMapper
     {
         String sql = "insert into User (email, password, name) values (?,?,?)";
         Connection con = new DBConnector().getConnection();
+        byte[] salt = HashEncoder.getSalt();
         
-        //String password = HashEncoder.get_SHA_256_SecurePassword(newUser.getPassword(), salt);
+        String password = HashEncoder.get_SHA_256_SecurePassword(newUser.getPassword(), salt);
         
         try
             (PreparedStatement stmt = con.prepareStatement(sql);)
         {
             stmt.setString(1, newUser.getEmail());
-            stmt.setString(2, newUser.getPassword());
+            stmt.setString(2, password);
             stmt.setString(3, newUser.getName());
             stmt.executeUpdate();
         } catch (SQLException ex)

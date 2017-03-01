@@ -5,9 +5,7 @@
  */
 package Backend;
 
-import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import model.User;
 
 /**
  *
@@ -17,6 +15,9 @@ public class Main
 {
     public static void main(String[] args)
     {
+        UserMapper um = new UserMapper();
         
+        User user = new User(0, "cupcakes@cupcakeshop.com", "mypassword", "Cake-Maestro");
+        um.createUser(user);
     }
 }
