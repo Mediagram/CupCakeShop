@@ -27,5 +27,8 @@
         </div>
         
         <c:import url="/inc/footer.jsp"/>
+        <script>
+            showMessage("This is great", false);
+        </script>
     </body>
 </html>

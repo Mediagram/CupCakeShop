@@ -11,3 +11,8 @@ h1 {text-shadow: #FFF 0px 1px 0px; margin-top: 0;}
 
 header {background: #333; color: lightgray;}
 header .container {padding: 10px; }
+
+.message-container {display: none; position: absolute; width: 100%; z-index: 1000; text-align: center; color: white;}
+.message-container p {margin: 10px; }
+.message-red {background: red;}
+.message-green {background: green;}
