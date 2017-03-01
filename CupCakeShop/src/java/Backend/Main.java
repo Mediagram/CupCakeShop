@@ -15,9 +15,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        UserMapper um = new UserMapper();
+        CupcakeMapper ccm = new CupcakeMapper();
         
-        User user = new User(0, "cupcakes@cupcakeshop.com", "mypassword", "Cake-Maestro");
-        um.createUser(user);
     }
 }
