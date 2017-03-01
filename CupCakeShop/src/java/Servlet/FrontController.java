@@ -27,8 +27,8 @@ public class FrontController extends HttpServlet {
         // From login page
         if (request.getParameter("login") != null) {
             
-            request.setAttribute("list1", ccm.getElements("Topping"));
-            request.setAttribute("list2", ccm.getElements("Bottom"));
+            request.setAttribute("list1", ccm.getCupcakeElements("Topping"));
+            request.setAttribute("list2", ccm.getCupcakeElements("Bottom"));
             
             // Do something...
             RequestDispatcher rd = request.getRequestDispatcher("/shop.jsp");
