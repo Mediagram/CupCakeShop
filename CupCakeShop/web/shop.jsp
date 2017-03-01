@@ -9,7 +9,7 @@
         <%@include file="inc/head.jsp" %>
     </head>
     <body>
-        
+
         <c:import url="/inc/header.jsp"/>
 
         <div class="container">
@@ -18,26 +18,32 @@
             </div>
 
             <div class="col-sm-6">
-                <form action="FrontController" method="POST">
-                    <select class="selectpicker">
-                        <option>Select topping...</option>
-                        <c:forEach items="${list1}" var="item">
-                            <option><c:out value="${item}"/></option>
+                <form id="cakeform" action="FrontController" method="POST">
+                    <select id="selectTopping" class="selectpicker">
+                        <option data-price="0">Select topping...</option>
+                        <c:forEach var="entry" items="${toppingMap}">
+                            <option class="elements" data-price="${entry.value}">
+                                <c:out value="${entry.key}"/>
+                            </option>
                         </c:forEach>
                     </select>
 
-                    <select>
-                        <option>Select bottom...</option>
-                        <c:forEach items="${list2}" var="item">
-                            <option><c:out value="${item}"/></option>
+                    <select id="selectBottom">
+                        <option data-price="0">Select bottom...</option>
+                        <c:forEach var="entry" items="${bottomMap}">
+                            <option class="elements" data-price="${entry.value}">
+                                <c:out value="${entry.key}"/>
+                            </option>
                         </c:forEach>
                     </select>
                     <input type="submit" value="Add to basket">
+                    <p id="totalpris"> 0 kr </p>
                 </form>
             </div>
 
         </div>
 
         <c:import url="/inc/footer.jsp"/>
+        <script src="js/calc.js" ></script>
     </body>
 </html>

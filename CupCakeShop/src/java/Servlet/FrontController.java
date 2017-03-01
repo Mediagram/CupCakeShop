@@ -21,14 +21,14 @@ public class FrontController extends HttpServlet {
         this.ccm = new CupcakeMapper();
     }
     
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        // From login page
-        if (request.getParameter("login") != null) {
+        String action = request.getParameter("action");
+        
+        if (action.equals("login")) {
             
-            request.setAttribute("list1", ccm.getCupcakeElements("Topping"));
-            request.setAttribute("list2", ccm.getCupcakeElements("Bottom"));
+            request.setAttribute("toppingMap", ccm.getCupcakeElements("Topping"));
+            request.setAttribute("bottomMap", ccm.getCupcakeElements("Bottom"));
             
             // Do something...
             RequestDispatcher rd = request.getRequestDispatcher("/shop.jsp");
