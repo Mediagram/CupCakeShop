@@ -5,29 +5,10 @@
  */
 package Backend;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
-
-/**
- *
- * @author Bade
- */
-public class Main
-{
-    public static void main(String[] args)
-    {
-
-    }
-=======
-
-
-
-
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         
     }
-    
->>>>>>> master
 }

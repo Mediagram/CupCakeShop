@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -17,19 +18,17 @@ public class CupcakeMapper {
         con = new DBConnector().getConnection();
     }
     
-    public ArrayList<String> getElements(String a) {
-        ArrayList<String> toppings = new ArrayList();
+    public HashMap<String, Double> getCupcakeElements(String table) {
         
-        String sql = "SELECT * FROM " + a;
-        String toppingName = "";
+        String sql = "SELECT * FROM " + table;
+        HashMap<String, Double> toppings = new HashMap();
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             
             while (rs.next()) {
-                toppingName = rs.getString("type");
-                toppings.add(toppingName);
+                toppings.put(rs.getString("type"), rs.getDouble("price"));
             }
 
         } catch (Exception e) {
@@ -39,12 +38,4 @@ public class CupcakeMapper {
         
         return toppings;
     }
-    
-    public ArrayList<String> getBottoms() {
-        ArrayList<String> bottoms = new ArrayList();
-        
-        
-        return bottoms;
-    }
-
 }

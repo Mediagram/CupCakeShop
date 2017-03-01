@@ -16,6 +16,11 @@ public class Cupcake
         this.price = price;
     }
 
+    public String getName()
+    {
+        return topping + "top" + "-" + bottom + "bottom" + " cupcake";
+    }
+    
     public String getTopping()
     {
         return topping;
