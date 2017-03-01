@@ -39,6 +39,7 @@ public class UserMapper
                 user = new User(rs.getInt("id"), rs.getString("email"),
                 rs.getString("password"), rs.getString("name"));
             }
+            con.close();
         } catch (SQLException ex)
         {
             Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
@@ -55,12 +56,14 @@ public class UserMapper
         String password = HashEncoder.get_SHA_256_SecurePassword(newUser.getPassword(), salt);
         
         try
-            (PreparedStatement stmt = con.prepareStatement(sql);)
         {
+            PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, newUser.getEmail());
             stmt.setString(2, password);
             stmt.setString(3, newUser.getName());
             stmt.executeUpdate();
+            
+            con.close();
         } catch (SQLException ex)
         {
             Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);

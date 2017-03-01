@@ -5,8 +5,6 @@
  */
 package Backend;
 
-import model.User;
-
 /**
  *
  * @author Bade
@@ -15,7 +13,6 @@ public class Main
 {
     public static void main(String[] args)
     {
-        CupcakeMapper ccm = new CupcakeMapper();
         
     }
 }

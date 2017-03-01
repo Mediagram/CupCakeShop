@@ -27,17 +27,14 @@ public class FrontController extends HttpServlet {
         // From login page
         if (request.getParameter("login") != null) {
             
-            
             request.setAttribute("list", ccm.getToppings());
             
             // Do something...
             RequestDispatcher rd = request.getRequestDispatcher("/shop.jsp");
-            rd.forward(request, response);
-        
-            
-            
-        // From another form    
-        } else if (request.getParameter("xxxx") != null) {
+            rd.forward(request, response);   
+        }
+        // From another form 
+        else if (request.getParameter("xxxx") != null) {
             
             // Do something..
             RequestDispatcher rd = request.getRequestDispatcher("/another_page.jsp");
