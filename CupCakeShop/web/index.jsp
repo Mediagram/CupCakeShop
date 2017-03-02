@@ -20,12 +20,13 @@
                 <form action="FrontController" method="POST">
                     <input type="email" name="username" placeholder="Type in your email..." class="form-control">
                     <input type="password" name="password" placeholder="Type in your password..." class="form-control">
-                    <div class="text-right"><input type="submit" value="login" class="btn btn-primary" name="action"></div>
+                    <div class="text-right"><input id="login" type="submit" value="login" class="btn btn-primary" name="action"></div>
                 </form>
             </div>
         
         </div>
         
         <c:import url="/inc/footer.jsp"/>
+        <script src="js/calc.js" ></script>
     </body>
 </html>

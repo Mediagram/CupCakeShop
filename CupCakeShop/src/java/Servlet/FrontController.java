@@ -1,6 +1,7 @@
 package Servlet;
 
 import Backend.CupcakeMapper;
+import Backend.UserMapper;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
@@ -9,45 +10,54 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.User;
 
-@WebServlet(urlPatterns = {"/FrontController"})
-public class FrontController extends HttpServlet {
+@WebServlet(urlPatterns =
+{
+    "/FrontController"
+})
+public class FrontController extends HttpServlet
+{
 
     //private ArrayList<String> getToppings = new ArrayList();
-    
     CupcakeMapper ccm;
-    
-    public FrontController() throws Exception {
+
+    public FrontController() throws Exception
+    {
         this.ccm = new CupcakeMapper();
     }
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    {
+
+        RequestDispatcher rd = null;
         String action = request.getParameter("action");
-        
-        if (action.equals("login")) {
-            
+        if (action == null)
+            action = "";
+
+        if (action.equals("login"))
+        {
             request.setAttribute("toppingMap", ccm.getCupcakeElements("Topping"));
             request.setAttribute("bottomMap", ccm.getCupcakeElements("Bottom"));
-            
-            // Do something...
-            RequestDispatcher rd = request.getRequestDispatcher("/shop.jsp");
-            rd.forward(request, response);   
+
+            User user = new UserMapper().loginUser(request.getParameter("username"), request.getParameter("password"));
+            if (user != null)
+            {
+                request.getSession().setAttribute("user", user);
+                rd = request.getRequestDispatcher("/shop.jsp");
+            }
+            else
+            {
+                rd = request.getRequestDispatcher("/index.jsp");
+            }
         }
-        // From another form 
-        else if (request.getParameter("xxxx") != null) {
-            
-            // Do something..
-            RequestDispatcher rd = request.getRequestDispatcher("/another_page.jsp");
-            rd.forward(request, response);
-            
+        else if (action.equals(""))
+        {
+
+            rd = request.getRequestDispatcher("/another_page.jsp");
         }
-        
-        
-        
-        
-        
-        
+
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -61,7 +71,8 @@ public class FrontController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -75,7 +86,8 @@ public class FrontController extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException
+    {
         processRequest(request, response);
     }
 
@@ -85,7 +97,8 @@ public class FrontController extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+    public String getServletInfo()
+    {
         return "Short description";
     }// </editor-fold>
 
