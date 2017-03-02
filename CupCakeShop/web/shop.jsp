@@ -46,7 +46,7 @@
 
                     <div class="row">
                         <div class="col-sm-6"><input type="text" placeholder="Type amount..." class="form-control"></div>
-                        <div class="col-sm-6 text-right"><input type="submit" value="Add to basket" class="btn btn-primary"></div>
+                        <div class="col-sm-6 text-right"><input type="button" value="Add to basket" class="btn btn-primary" id="add-button"></div>
                     </div>
                 </form>
             </div>
@@ -54,6 +54,6 @@
         </div>
 
         <c:import url="/inc/footer.jsp"/>
-        <script src="js/calc.js" ></script>
+        <script src="js/shop.js" ></script>
     </body>
 </html>
