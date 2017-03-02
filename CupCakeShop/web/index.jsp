@@ -27,6 +27,8 @@
         </div>
         
         <c:import url="/inc/footer.jsp"/>
-        <script src="js/calc.js" ></script>
+        <script>
+            showMessage("This is great", false);
+        </script>
     </body>
 </html>
