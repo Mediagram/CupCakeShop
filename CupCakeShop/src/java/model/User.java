@@ -21,8 +21,6 @@ public class User
         shoppingCart = new ArrayList<Cupcake>();
     }
     
-    
-    
     public int getId()
     {
         return id;
@@ -41,5 +39,10 @@ public class User
     public String getName()
     {
         return name;
+    }
+    
+    public Double getBalance()
+    {
+        return balance;
     }
 }
