@@ -1,4 +1,5 @@
 * {font-family: 'Raleway', sans-serif;}
+#hiddenMessage {visibility: hidden; position: absolute;}
 h1 {text-shadow: #FFF 0px 1px 0px; margin-top: 0;}
 .frontpage {background: url(../img/login-background.jpg); background-size: 100%;}
 .transparent {background: rgba(255, 255, 255, 0.5);}
@@ -12,9 +13,15 @@ h1 {text-shadow: #FFF 0px 1px 0px; margin-top: 0;}
 header {background: #333; color: lightgray;}
 header .container {padding: 10px; }
 
-.message-container {display: none; position: absolute; width: 100%; z-index: 1000; text-align: center; color: white;}
+.message-container {position: absolute; width: 100%; z-index: 1000; text-align: center; color: white; top: -40px; transition: all 0.6s ease-in-out;}
 .message-container p {margin: 10px; }
 .message-red {background: red;}
 .message-green {background: green;}
+.fade-down {top: 0px;}
+.fade-out {opacity: 0;}
 
-.temp-basket {background: #333; color: white; min-height: 0px;}
+.temp-basket, .temp-basket-sum {background: #333; color: white; min-height: 0px; margin-top: 20px; }
+.temp-basket input, .temp-basket-sum input {border-style: none; background: none; height: 50px;}
+.temp-basket input {width: 90%;}
+.temp-basket-sum input {text-align: right;}
+.temp-basket div {border-bottom: solid 1px grey;}

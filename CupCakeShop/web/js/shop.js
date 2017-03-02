@@ -23,7 +23,7 @@ selectBot.addEventListener("change", calcPrice);
 // Put CupCakes in visual temp cart on shop page
 function addToTempCart() {
     var combinedCupCake = selectTop.options[selectTop.selectedIndex].text + " - " + selectBot.options[selectBot.selectedIndex].text;
-    tempBasketContainer.innerHTML += "<div><span>" + cakeAmount.value + " x  " + "<input type='text' " + combinedCupCake + " > - " + (cakeAmount.value * totalPrice) + "</div>";
+    tempBasketContainer.innerHTML += "<div><span>" + cakeAmount.value + " x  " + "<input type='text' value='" + combinedCupCake + "' > " + (cakeAmount.value * totalPrice) + " kr.</div>";
     printPrice.innerHTML = "0 kr.";
     cakeForm.reset();
 }

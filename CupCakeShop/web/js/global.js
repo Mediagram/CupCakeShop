@@ -1,20 +1,33 @@
 var messageContainer = document.getElementById("messageContainer");
 var messageText = document.getElementById("message-text");
 
-function showMessage(str) {
+var hiddenMessage = document.getElementById("hiddenMessage").innerHTML;
+
+function showMessage() {
 
     var redText = false;
-    if (str !== "")
-    {   
-        if (str.includes("error"))
-        messageContainer.style.display = "block";
+
+    if (hiddenMessage !== "") {
+        if (hiddenMessage.includes("error"))
+            //messageContainer.style.display = "block";
+            setTimeout(function () {
+                messageContainer.className += " fade-down";
+            }, 100);
 
         if (redText === true) {
             messageContainer.className += " message-green";
+
         } else {
             messageContainer.className += " message-red";
         }
 
-        messageText.innerHTML = str;
+        messageText.innerHTML = hiddenMessage;
     }
+
+
+    setTimeout(function () {
+        messageContainer.className += " fade-out";
+    }, 3000);
+
+
 }

@@ -47,7 +47,7 @@
                         <div class="col-sm-8 text-right"><input type="button" value="Add to basket" class="btn btn-primary" id="add-button"></div>
                     </div>
                     
-
+                    
                     <div class="row">
                         <div class="col-sm-6">Cupcake pris: <strong><span id="totalpris"> 0 kr.</span></strong></div>
                         <div class="col-sm-6"></div>
@@ -56,10 +56,17 @@
             </div>
             
 
-        
-            <div class="col-sm-12 temp-basket" id="temp-basket-container">
+            <form action="FrontController">
+                <div class="col-sm-12 temp-basket" id="temp-basket-container">
+                    
+                    
+                </div>
                 
-            </div>
+                <div class="col-sm-12 temp-basket-sum text-right">
+                    I alt: <input type="text" >
+                </div>
+                
+            </form>
             
         </div>
         

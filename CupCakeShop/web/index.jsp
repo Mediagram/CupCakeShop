@@ -28,7 +28,7 @@
         
         <c:import url="/inc/footer.jsp"/>
         <script>
-            showMessage(document.getElementById("hiddenMessage").innerHTML, true);
+            showMessage();
         </script>
     </body>
 </html>
