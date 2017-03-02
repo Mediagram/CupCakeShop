@@ -37,7 +37,7 @@ public class UserMapper
             if (rs.next())
             {
                 user = new User(rs.getInt("id"), rs.getString("email"),
-                rs.getString("password"), rs.getString("name"));
+                rs.getString("name"), rs.getDouble("balance"));
             }
             con.close();
         } catch (SQLException ex)
@@ -47,13 +47,13 @@ public class UserMapper
         return user;
     }
     
-    public void createUser(User newUser)
+    public void createUser(User newUser, String password)
     {
         String sql = "insert into User (email, password, name) values (?,?,?)";
         Connection con = new DBConnector().getConnection();
         byte[] salt = HashEncoder.getSalt();
         
-        String password = HashEncoder.get_SHA_256_SecurePassword(newUser.getPassword(), salt);
+        password = HashEncoder.get_SHA_256_SecurePassword(password, salt);
         
         try
         {

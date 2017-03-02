@@ -21,7 +21,7 @@ public class FrontController extends HttpServlet
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-
+        
         RequestDispatcher rd = null;
         String action = request.getParameter("action");
         
