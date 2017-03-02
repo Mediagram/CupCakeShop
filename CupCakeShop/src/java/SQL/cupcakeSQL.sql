@@ -1,3 +1,4 @@
+
 create table Bottom
 (
 	id int primary key auto_increment,
@@ -17,6 +18,7 @@ create table User
 	id int primary key auto_increment,
     email varchar(255) unique NOT NULL,
     password varchar(255) NOT NULL,
+    balance double default 0,
     name varchar(255) NOT NULL
 );
 

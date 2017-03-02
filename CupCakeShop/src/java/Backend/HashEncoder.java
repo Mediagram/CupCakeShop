@@ -45,7 +45,7 @@ public class HashEncoder
         return generatedPassword;
     }
     
-    private static byte[] generateSalt() throws NoSuchAlgorithmException
+    public static byte[] generateSalt() throws NoSuchAlgorithmException
     {
         SecureRandom sr = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
@@ -53,7 +53,7 @@ public class HashEncoder
         return salt;
     }
 
-    private static void insertSaltInDB(byte[] salt)
+    public static void insertSaltInDB(byte[] salt)
     {
         String sql = "insert into Salt (salt) values (?)";
         Connection con = new DBConnector().getConnection();

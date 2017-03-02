@@ -9,16 +9,19 @@ public class User
     private String email;
     private String password;
     private String name;
+    private double balance;
     private ArrayList<Cupcake> shoppingCart;
 
-    public User(int id, String email, String password, String name)
+    public User(int id, String email, String name, double balance)
     {
         this.id = id;
         this.email = email;
-        this.password = password;
         this.name = name;
+        this.balance = balance;
         shoppingCart = new ArrayList<Cupcake>();
     }
+    
+    
     
     public int getId()
     {

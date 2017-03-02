@@ -28,7 +28,7 @@
         
         <c:import url="/inc/footer.jsp"/>
         <script>
-            showMessage("This is great", false);
+            showMessage(document.getElementById("hiddenMessage").innerHTML, true);
         </script>
     </body>
 </html>
