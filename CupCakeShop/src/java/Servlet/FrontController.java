@@ -24,10 +24,8 @@ public class FrontController extends HttpServlet
 
         RequestDispatcher rd = null;
         String action = request.getParameter("action");
-        if (action == null)
-            action = "";
         
-        if (action.equals("login"))
+        if ("login".equals(action))
         {
             CupcakeMapper ccm = new CupcakeMapper();
             request.setAttribute("toppingMap", ccm.getCupcakeElements("Topping"));
@@ -45,7 +43,7 @@ public class FrontController extends HttpServlet
                 rd = request.getRequestDispatcher("/index.jsp");
             }
         }
-        else if (action.equals(""))
+        else if ("xxx".equals(action))
         {
 
             rd = request.getRequestDispatcher("/another_page.jsp");
