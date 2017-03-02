@@ -16,3 +16,5 @@ header .container {padding: 10px; }
 .message-container p {margin: 10px; }
 .message-red {background: red;}
 .message-green {background: green;}
+
+.temp-basket {background: #333; color: white; min-height: 0px;}
