@@ -49,7 +49,7 @@ public class UserMapper
     
     public void createUser(User newUser, String password)
     {
-        String sql = "insert into User (email, password, name) values (?,?,?)";
+        String sql = "insert into User (email, password, name, balance) values (?,?,?,?)";
         Connection con = new DBConnector().getConnection();
         byte[] salt = HashEncoder.getSalt();
         
@@ -61,6 +61,7 @@ public class UserMapper
             stmt.setString(1, newUser.getEmail());
             stmt.setString(2, password);
             stmt.setString(3, newUser.getName());
+            stmt.setDouble(4, newUser.getBalance());
             stmt.executeUpdate();
             
             con.close();
