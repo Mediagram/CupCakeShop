@@ -19,14 +19,6 @@ import model.User;
 public class FrontController extends HttpServlet
 {
 
-    //private ArrayList<String> getToppings = new ArrayList();
-    CupcakeMapper ccm;
-
-    public FrontController() throws Exception
-    {
-        this.ccm = new CupcakeMapper();
-    }
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
 
@@ -34,9 +26,10 @@ public class FrontController extends HttpServlet
         String action = request.getParameter("action");
         if (action == null)
             action = "";
-
+        
         if (action.equals("login"))
         {
+            CupcakeMapper ccm = new CupcakeMapper();
             request.setAttribute("toppingMap", ccm.getCupcakeElements("Topping"));
             request.setAttribute("bottomMap", ccm.getCupcakeElements("Bottom"));
 
@@ -48,6 +41,7 @@ public class FrontController extends HttpServlet
             }
             else
             {
+                request.setAttribute("message", "Failed login error.");
                 rd = request.getRequestDispatcher("/index.jsp");
             }
         }
