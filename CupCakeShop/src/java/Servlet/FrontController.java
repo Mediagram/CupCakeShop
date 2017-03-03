@@ -43,15 +43,36 @@ public class FrontController extends HttpServlet
                 rd = request.getRequestDispatcher("/index.jsp");
             }
         }
-        else if ("xxx".equals(action))
+        else if ("addToBasket".equals(action))
         {
-
-            rd = request.getRequestDispatcher("/another_page.jsp");
+            String[] cupcakes = request.getParameterValues("cupcake-fields");
+            User currentUser = (User)request.getSession().getAttribute("user");
+            for (String str : cupcakes)
+            {
+                String[] split = str.split(" ");
+                currentUser.addCupcake(split[1], Integer.parseInt(split[0].replaceAll("x", "")), Integer.parseInt(split[2]));
+            }
+            rd = request.getRequestDispatcher("/shopping_cart.jsp");
         }
-
+        else if ("order".equals(action))
+        {
+            // Do logic stuff with order //
+            // Print invoice //
+            rd = request.getRequestDispatcher("/invoice.jsp");
+        }
+        else if ("logout".equals(action))
+        {
+            request.getSession().setAttribute("user", null);
+            request.setAttribute("message", "Logged out.");
+            rd = request.getRequestDispatcher("/index.jsp");
+        }
+        else
+        {
+            rd = request.getRequestDispatcher("/index.jsp");
+        }
+        
         rd.forward(request, response);
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
