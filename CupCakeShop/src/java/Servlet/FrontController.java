@@ -3,7 +3,6 @@ package Servlet;
 import Backend.CupcakeMapper;
 import Backend.UserMapper;
 import java.io.IOException;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,7 +49,8 @@ public class FrontController extends HttpServlet
             for (String str : cupcakes)
             {
                 String[] split = str.split(" ");
-                currentUser.addCupcake(split[1], Integer.parseInt(split[0].replaceAll("x", "")), Integer.parseInt(split[2]));
+                currentUser.addCupcake(split[1], Integer.parseInt(split[0].replaceAll("[^\\\\d.]", "")), 
+                        Integer.parseInt(split[2].replaceAll("[^\\\\d.]", "")));
             }
             rd = request.getRequestDispatcher("/shopping_cart.jsp");
         }
@@ -70,7 +70,6 @@ public class FrontController extends HttpServlet
         {
             rd = request.getRequestDispatcher("/index.jsp");
         }
-        
         rd.forward(request, response);
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
