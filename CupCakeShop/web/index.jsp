@@ -12,7 +12,7 @@
         <c:import url="/inc/header.jsp"/>
         
         <div class="container">
-            
+
 
             <div class="login-container">
                 <h1>CupCakeShop</h1>
