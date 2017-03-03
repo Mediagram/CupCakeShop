@@ -21,9 +21,9 @@ public class User
         shoppingCart = new ArrayList<Cupcake>();
     }
     
-    public void addCupcake(String topping, String bottom, int amount, double price)
+    public void addCupcake(String cupcakeName, int amount, double price)
     {
-        shoppingCart.add(new Cupcake(topping, bottom, amount, price));
+        shoppingCart.add(new Cupcake(cupcakeName, amount, price));
     }
     
     public int getId()
