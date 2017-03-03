@@ -9,6 +9,9 @@
         <c:choose>
             <c:when test="${sessionScope.user != null}">
                 Logged in as: <c:out value="${sessionScope.user.getName()}"/>
+                <form style="display: inline;" method="link" action="./FrontController">
+                    <input name="action" type="submit" value="logout"/>
+                </form>
             </c:when>
             <c:otherwise>
                 Not logged in.

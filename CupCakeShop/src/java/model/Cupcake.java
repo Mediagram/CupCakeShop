@@ -3,34 +3,22 @@ package model;
 
 public class Cupcake 
 {
-    private String topping;
-    private String bottom;
+    private String name;
     private int amount;
     private double price;
 
-    public Cupcake(String topping, String bottom, int amount, double price)
+    public Cupcake(String name, int amount, double price)
     {
-        this.topping = topping;
-        this.bottom = bottom;
+        this.name = name;
         this.amount = amount;
         this.price = price;
     }
-
+    
     public String getName()
     {
-        return topping + "top" + "-" + bottom + "bottom" + " cupcake";
+        return name;
     }
     
-    public String getTopping()
-    {
-        return topping;
-    }
-
-    public String getBottom()
-    {
-        return bottom;
-    }
-
     public int getAmount()
     {
         return amount;
