@@ -3,9 +3,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cart</title>
+        
+        <%@include file="inc/head.jsp" %>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <c:import url="/inc/header.jsp"/>
+        
+        <div class="container transparent shop-padding">
+            <h1>Shopping cart</h1>
+            
+        </div>
+        
+        
+        <c:import url="/inc/footer.jsp"/>
     </body>
 </html>

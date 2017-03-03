@@ -44,27 +44,29 @@
                     
                     <div class="row">
                         <div class="col-sm-4"><input type="number" placeholder="Amount..." class="form-control" id="cake-amount"></div>
-                        <div class="col-sm-8 text-right"><input type="button" value="Add to basket" class="btn btn-primary" id="add-button"></div>
+                        <div class="col-sm-8 text-right"><input type="button" value="Add cupcake" class="btn btn-primary" id="add-button"></div>
                     </div>
                     
                     
                     <div class="row">
-                        <div class="col-sm-6">Cupcake pris: <strong><span id="totalpris"> 0 kr.</span></strong></div>
+                        <div class="col-sm-6">Cupcake stk. pris: <strong><span id="totalpris"> 0 kr.</span></strong></div>
                         <div class="col-sm-6"></div>
                     </div>
                 </form>
             </div>
             
 
-            <form action="FrontController">
+            <form action="FrontController" method="POST">
                 <div class="col-sm-12 temp-basket" id="temp-basket-container">
                     
                     
                 </div>
                 
-                <div class="col-sm-12 temp-basket-sum text-right">
-                    I alt: <input type="text" >
+                <div class="col-sm-12 temp-basket-sum text-right" id="temp-basket-bottom">
+                    I alt: <input type="text" id="sum-up-field"> kr.
+                    
                 </div>
+                <div class="text-right" id="add-to-basket"><button type="submit" name="action" value="addToBasket" class="btn btn-primary">Add to shopping cart</button></div>
                 
             </form>
             

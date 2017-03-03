@@ -20,7 +20,9 @@ header .container {padding: 10px; }
 .fade-down {top: 0px;}
 .fade-out {opacity: 0;}
 
+.temp-basket, .temp-basket-sum, #add-to-basket {display: none;}
 .temp-basket, .temp-basket-sum {background: #333; color: white; min-height: 0px; margin-top: 20px; }
+.temp-basket-sum {margin-bottom: 15px;}
 .temp-basket input, .temp-basket-sum input {border-style: none; background: none; height: 50px;}
 .temp-basket input {width: 90%;}
 .temp-basket-sum input {text-align: right;}
