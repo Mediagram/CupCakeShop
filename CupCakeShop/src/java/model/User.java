@@ -21,6 +21,11 @@ public class User
         shoppingCart = new ArrayList<Cupcake>();
     }
     
+    public void addCupcake(String topping, String bottom, int amount, double price)
+    {
+        shoppingCart.add(new Cupcake(topping, bottom, amount, price));
+    }
+    
     public int getId()
     {
         return id;

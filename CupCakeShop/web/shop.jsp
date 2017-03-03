@@ -33,7 +33,7 @@
 
                     <div class="form-group">
                         <select id="selectBottom" class="form-control">
-                            <option data-price="0">Select bottom...</option>
+                            <option data-price="0" value="">Select bottom...</option>
                             <c:forEach var="entry" items="${bottomMap}">
                                 <option class="elements" data-price="${entry.value}">
                                     <c:out value="${entry.key}"/>

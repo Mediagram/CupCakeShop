@@ -18,8 +18,8 @@
                 <h1>CupCakeShop</h1>
                 <p>Please login:</p>
                 <form action="FrontController" method="POST">
-                    <input type="email" name="username" placeholder="Type in your email..." class="form-control">
-                    <input type="password" name="password" placeholder="Type in your password..." class="form-control">
+                    <input type="email" name="username" placeholder="Type in your email..." class="form-control" required>
+                    <input type="password" name="password" placeholder="Type in your password..." class="form-control" required>
                     <div class="text-right"><input id="login" type="submit" value="login" class="btn btn-primary" name="action"></div>
                 </form>
             </div>
