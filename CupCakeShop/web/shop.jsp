@@ -55,7 +55,7 @@
                 </form>
             </div>
 
-            <form action="FrontController" method="POST">
+            <form action="FrontController" method="POST" id="tempBasketForm">
                 <div class="col-sm-12 temp-basket" id="temp-basket-container">
                     
                     
@@ -65,7 +65,7 @@
                     I alt: <input type="text" name="sum-up-field" id="sum-up-field"> kr.
                     
                 </div>
-                <div class="text-right" id="add-to-basket"><button type="submit" name="action" value="addToBasket" class="btn btn-primary">Add to shopping cart</button></div>
+                <div class="text-right" id="add-to-basket"><a href="#" onClick="window.location.reload()">Empty basket</a> <button type="submit" name="action" value="addToBasket" class="btn btn-primary">Add to shopping cart</button></div>
                 
             </form>
             

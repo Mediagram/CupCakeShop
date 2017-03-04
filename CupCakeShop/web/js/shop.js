@@ -13,6 +13,8 @@ var click_count = 0;
 var cupcakeFields = document.getElementsByName("cupcake-fields");
 var totalSumPrice = 0;
 var sumUpField = document.getElementById("sum-up-field");
+var tempBasketForm = document.getElementById("tempBasketForm");
+var headerBalance = document.getElementById("header-balance");
 
 // Calculate price
 function calcPrice() {
@@ -40,8 +42,8 @@ function addToTempCart() {
     var combinedCupCake = selectTop.options[selectTop.selectedIndex].text + "-" + selectBot.options[selectBot.selectedIndex].text;
 
     // Append input files dynamic
-    tempBasketContainer.innerHTML += "<div><input type='text' name='cupcake-fields' class='cupcake-fields' value='" + cakeAmount.value + "x " + combinedCupCake + " " + (cakeAmount.value * totalPrice) + " kr." + "' data-price='"+ (cakeAmount.value * totalPrice) + "'></div>";
-    console.log(tempBasketContainer.innerHTML);
+    tempBasketContainer.innerHTML += "<div><input type='text' name='cupcake-fields' class='cupcake-fields' value='" + cakeAmount.value + "x " + combinedCupCake + " " + (cakeAmount.value * totalPrice) + " kr." + "' data-price='" + (cakeAmount.value * totalPrice) + "'></div>";
+    //console.log(tempBasketContainer.innerHTML);
 
     // Loop over appended input fields
     for (i = 0; i < cupcakeFields.length; i++) {
@@ -56,7 +58,17 @@ function addToTempCart() {
 }
 addButton.addEventListener("click", addToTempCart);
 
-function checkBalance (userBalance, neededBalance)
-{
+/*
+function checkBalance(userBalance, neededBalance) {
     return userBalance >= neededBalance;
+}
+*/
+
+tempBasketForm.onsubmit = function () {
+    
+    if (parseInt(headerBalance.innerHTML) < sumUpField.value) {
+        alert('You have insufficient money!');
+        return false;
+    }
+
 }

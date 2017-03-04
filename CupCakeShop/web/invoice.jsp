@@ -69,7 +69,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-12 text-right"><a href="shop.jsp">Shop again</a></div>
+                <div class="col-sm-12 text-right"><a href="#" onclick="location.href='index.jsp'">Go to start</a></div>
             </div>
                                         
                                         
