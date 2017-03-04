@@ -40,7 +40,7 @@ function addToTempCart() {
     var combinedCupCake = selectTop.options[selectTop.selectedIndex].text + " - " + selectBot.options[selectBot.selectedIndex].text;
 
     // Append input files dynamic
-    tempBasketContainer.innerHTML += "<div><span><input type='text' name='cupcake-fields' class='cupcake-fields' value='" + cakeAmount.value + "x " + combinedCupCake + " " + (cakeAmount.value * totalPrice) + "' data-price='"+ (cakeAmount.value * totalPrice) +"' kr.></div>";
+    tempBasketContainer.innerHTML += "<div><input type='text' name='cupcake-fields' class='cupcake-fields' value='" + cakeAmount.value + "x " + combinedCupCake + " " + (cakeAmount.value * totalPrice) + " kr." + "' data-price='"+ (cakeAmount.value * totalPrice) + "'></div>";
     console.log(tempBasketContainer.innerHTML);
 
     // Loop over appended input fields
