@@ -43,8 +43,6 @@ public class FrontController extends HttpServlet
             }
         }
         
-        
-        
         else if ("addToBasket".equals(action))
         {
             String[] cupcakes = request.getParameterValues("cupcake-fields");

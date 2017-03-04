@@ -26,6 +26,11 @@ public class User
         shoppingCart.add(new Cupcake(cupcakeName, amount, price));
     }
     
+    public ArrayList<Cupcake> getShoppingCart()
+    {
+        return shoppingCart;
+    }
+    
     public int getId()
     {
         return id;
