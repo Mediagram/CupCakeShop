@@ -1,21 +1,20 @@
-
 create table Bottom
 (
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     type varchar(255) unique,
     price double
 );
 
 create table Topping
 (
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     type varchar(255) unique,
     price double
 );
 
 create table User
 (
-	id int primary key auto_increment,
+    id int primary key auto_increment,
     email varchar(255) unique NOT NULL,
     password varchar(255) NOT NULL,
     balance double default 0,

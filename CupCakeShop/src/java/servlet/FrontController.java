@@ -1,7 +1,7 @@
-package Servlet;
+package servlet;
 
-import Backend.CupcakeMapper;
-import Backend.UserMapper;
+import backend.CupcakeMapper;
+import backend.UserMapper;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,7 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.User;
+import backend.User;
 
 @WebServlet(urlPatterns =
 {

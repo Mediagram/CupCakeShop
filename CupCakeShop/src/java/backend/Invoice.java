@@ -1,7 +1,6 @@
-package Backend;
+package backend;
 
 import java.util.ArrayList;
-import model.Cupcake;
 
 public class Invoice
 {
