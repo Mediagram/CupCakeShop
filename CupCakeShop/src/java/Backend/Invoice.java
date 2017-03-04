@@ -4,32 +4,32 @@ import java.util.ArrayList;
 
 public class Invoice
 {
-    private ArrayList<String> orderStrings = new ArrayList();
+    private ArrayList<Cupcake> orderCupcakes = new ArrayList();
     private double totalPrice;
     
     public Invoice(ArrayList<Cupcake> shoppingCart)
     {
+        orderCupcakes = shoppingCart;
         for (Cupcake cupcake : shoppingCart)
         {
-            orderStrings.add(cupcake.getAmount() + "x " + cupcake.getName() + " " + cupcake.getPrice());
             totalPrice += cupcake.getPrice();
         }
     }
 
-    public String invoiceInfoToString()
-    {
-        StringBuilder sb = new StringBuilder();
-        for (String str : orderStrings)
-        {
-            sb.append(str);
-            sb.append(".");
-        }
-        return sb.toString();
-    }
+//    public String invoiceInfoToString()
+//    {
+//        StringBuilder sb = new StringBuilder();
+//        for (String str : orderStrings)
+//        {
+//            sb.append(str);
+//            sb.append(".");
+//        }
+//        return sb.toString();
+//    }
     
-    public ArrayList<String> getOrderStrings()
+    public ArrayList<Cupcake> getOrderCupcakes()
     {
-        return orderStrings;
+        return orderCupcakes;
     }
     
     public double getTotalPrice()

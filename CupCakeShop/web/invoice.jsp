@@ -20,7 +20,7 @@
                     <hr>
                     <div class="row">
                         <strong>Order for:</strong><br>
-                        Email: Joe
+                        Email: <c:out value="${sessionScope.user.getEmail()}"/>
                     </div>
                 </div>
             </div>
@@ -43,19 +43,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="item" items="${invoice.getOrderStrings()}">
+                                        <c:forEach var="item" items="${invoice.getOrderCupcakes()}">
                                             <tr>
                                                 <td><c:out value="${item.getName()}"/></td>
                                                     <td class="text-center"><c:out value="${item.getPrice()}"/></td>
                                                         <td class="text-center"><c:out value="${item.getAmount()}"/></td>
-                                                            <td class="text-right"><c:out value="${item.getPrice()}"/></td>
+                                                            <td class="text-right"><c:out value="${item.getPrice() * item.getAmount()}"/></td>
                                                             </tr>
                                                             </c:forEach>
                                                             <tr>
                                                                 <td class="no-line"></td>
                                                                 <td class="no-line"></td>
                                                                 <td class="no-line text-center"><strong>Total</strong></td>
-                                                                <td class="no-line text-right"><c:out value="${invoice.getTotalprice()}"/></td>
+                                                                <td class="no-line text-right"><c:out value="${invoice.getTotalPrice()}"/></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>

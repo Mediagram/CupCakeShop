@@ -17,7 +17,7 @@ public class InvoiceMapper
         {
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setInt(1, user.getId());
-            stmt.setString(2, orderInvoice.invoiceInfoToString());
+//            stmt.setString(2, orderInvoice.invoiceInfoToString());
             stmt.setDouble(3, orderInvoice.getTotalPrice());
             
             stmt.executeUpdate();
