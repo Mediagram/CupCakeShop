@@ -42,34 +42,49 @@ public class FrontController extends HttpServlet
                 rd = request.getRequestDispatcher("/index.jsp");
             }
         }
+        
+        
+        
         else if ("addToBasket".equals(action))
         {
             String[] cupcakes = request.getParameterValues("cupcake-fields");
+            String totalAmount = request.getParameter("sum-up-field");
+            
             User currentUser = (User)request.getSession().getAttribute("user");
+            
             for (String str : cupcakes)
             {
                 String[] split = str.split(" ");
                 split[0] = split[0].replace("x", "");
                 split[2] = split[2].replace("kr", "");
                 
-                currentUser.addCupcake(split[1], Integer.parseInt(split[0]), 
-                        Integer.parseInt(split[2]));
+                currentUser.addCupcake(split[1], Integer.parseInt(split[0]), Integer.parseInt(split[2]));
             }
             request.setAttribute("shoppingContent", cupcakes);
+            request.setAttribute("totalAmount", totalAmount);
             rd = request.getRequestDispatcher("/shopping_cart.jsp");
         }
+        
+        
+        
         else if ("order".equals(action))
         {
             // Do logic stuff with order //
             // Print invoice //
             rd = request.getRequestDispatcher("/invoice.jsp");
         }
+        
+        
+        
         else if ("logout".equals(action))
         {
             request.getSession().setAttribute("user", null);
             request.setAttribute("message", "Logged out.");
             rd = request.getRequestDispatcher("/index.jsp");
         }
+        
+        
+        
         else
         {
             rd = request.getRequestDispatcher("/index.jsp");

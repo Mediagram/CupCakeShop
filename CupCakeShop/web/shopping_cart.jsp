@@ -8,18 +8,21 @@
 
         <%@include file="inc/head.jsp" %>
     </head>
-    <body>
+    <body class="shop">
         <c:import url="/inc/header.jsp"/>
 
         <div class="container transparent shop-padding">
             <h1>Shopping cart</h1>
 
             <c:forEach var="entry" items="${shoppingContent}">
-
-                    <c:out value="${entry}"/>
-
+                <hr>
+                <c:out value="${entry}"/>
             </c:forEach>
 
+            <div class="text-right">
+                <hr>
+                <h1>Total: <c:out value="${totalAmount}"/> kr.</h1>
+            </div>
         </div>
 
 

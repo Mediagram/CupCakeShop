@@ -63,7 +63,7 @@
                 </div>
                 
                 <div class="col-sm-12 temp-basket-sum text-right" id="temp-basket-bottom">
-                    I alt: <input type="text" id="sum-up-field"> kr.
+                    I alt: <input type="text" name="sum-up-field" id="sum-up-field"> kr.
                     
                 </div>
                 <div class="text-right" id="add-to-basket"><button type="submit" name="action" value="addToBasket" class="btn btn-primary">Add to shopping cart</button></div>
