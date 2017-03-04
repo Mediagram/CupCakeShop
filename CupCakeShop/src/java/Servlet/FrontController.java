@@ -60,15 +60,13 @@ public class FrontController extends HttpServlet {
             }
             request.setAttribute("shoppingContent", currentUser.getShoppingCart());
             request.setAttribute("totalAmount", totalAmount);
-//            rd = request.getRequestDispatcher("/shopping_cart.jsp");
-            Invoice inv = new Invoice(currentUser.getShoppingCart());
-            request.setAttribute("invoice", inv);
-            rd = request.getRequestDispatcher("/invoice.jsp");
+            rd = request.getRequestDispatcher("/shopping_cart.jsp");
         }
 
         else if ("order".equals(action))
         {
             User currentUser = (User) request.getSession().getAttribute("user");
+            currentUser.setBalance(currentUser.getBalance() - (int)request.getAttribute("totalprice"));
             Invoice inv = new Invoice(currentUser.getShoppingCart());
             request.setAttribute("invoice", inv);
             rd = request.getRequestDispatcher("/invoice.jsp");
