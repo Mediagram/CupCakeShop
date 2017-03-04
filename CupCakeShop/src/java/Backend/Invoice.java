@@ -12,7 +12,7 @@ public class Invoice
         orderCupcakes = shoppingCart;
         for (Cupcake cupcake : shoppingCart)
         {
-            totalPrice += cupcake.getPrice();
+            totalPrice += cupcake.getPrice() * cupcake.getAmount();
         }
     }
 
