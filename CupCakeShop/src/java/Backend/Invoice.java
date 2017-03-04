@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Invoice
 {
-    private ArrayList<String> orderStrings;
+    private ArrayList<String> orderStrings = new ArrayList();
     private double totalPrice;
     
     public Invoice(ArrayList<Cupcake> shoppingCart)

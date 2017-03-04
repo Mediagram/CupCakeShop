@@ -43,30 +43,30 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="item" items="${invoice.getOrderStrings()}">
-                                    <tr>
-                                        <td><c:out value="${item.getName()}"></td>
-                                        <td class="text-center"><c:out value="${item.getPrice()}"></td>
-                                        <td class="text-center"><c:out value="${item.getAmount()}"></td>
-                                        <td class="text-right"><c:out value="${item.getPrice()}"></td>
-                                    </tr>
-                                    </c:forEach>
-                                    <tr>
-                                        <td class="no-line"></td>
-                                        <td class="no-line"></td>
-                                        <td class="no-line text-center"><strong>Total</strong></td>
-                                        <td class="no-line text-right"><c:out value="${invoice.getTotalprice()}"></td>
-                                    </tr>
-                                    </tbody>
-                                    </table>
+                                        <c:forEach var="item" items="${invoice.getOrderStrings()}">
+                                            <tr>
+                                                <td><c:out value="${item.getName()}"/></td>
+                                                    <td class="text-center"><c:out value="${item.getPrice()}"/></td>
+                                                        <td class="text-center"><c:out value="${item.getAmount()}"/></td>
+                                                            <td class="text-right"><c:out value="${item.getPrice()}"/></td>
+                                                            </tr>
+                                                            </c:forEach>
+                                                            <tr>
+                                                                <td class="no-line"></td>
+                                                                <td class="no-line"></td>
+                                                                <td class="no-line text-center"><strong>Total</strong></td>
+                                                                <td class="no-line text-right"><c:out value="${invoice.getTotalprice()}"/></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <c:import url="/inc/footer.jsp"/>
-            <script src="js/shop.js" ></script>
-        </body>
-    </html>
+                                <c:import url="/inc/footer.jsp"/>
+                                <script src="js/shop.js" ></script>
+                            </body>
+                        </html>

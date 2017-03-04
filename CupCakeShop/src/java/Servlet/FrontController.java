@@ -49,7 +49,7 @@ public class FrontController extends HttpServlet {
             String totalAmount = request.getParameter("sum-up-field");
 
             User currentUser = (User) request.getSession().getAttribute("user");
-            
+
             for (String str : cupcakes)
             {
                 String[] split = str.split(" ");
@@ -60,7 +60,7 @@ public class FrontController extends HttpServlet {
             }
             request.setAttribute("shoppingContent", currentUser.getShoppingCart());
             request.setAttribute("totalAmount", totalAmount);
-            //rd = request.getRequestDispatcher("/shopping_cart.jsp");
+//            rd = request.getRequestDispatcher("/shopping_cart.jsp");
             Invoice inv = new Invoice(currentUser.getShoppingCart());
             request.setAttribute("invoice", inv);
             rd = request.getRequestDispatcher("/invoice.jsp");
