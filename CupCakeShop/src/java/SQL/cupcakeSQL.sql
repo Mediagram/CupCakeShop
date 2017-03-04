@@ -21,6 +21,14 @@ create table User
     name varchar(255) NOT NULL
 );
 
+create table Invoice
+(
+    orderno int primary key auto_increment,
+    customerid int,
+    orderitems long varchar,
+    foreign key (customerid) references User (id)
+);
+
 create table Salt
 (
     id int primary key auto_increment,
