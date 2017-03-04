@@ -11,7 +11,7 @@
     <body class="shop">
         <c:import url="/inc/header.jsp"/>
 
-        <div class="container whiteBackground">
+        <div class="container invoice">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="invoice-title">

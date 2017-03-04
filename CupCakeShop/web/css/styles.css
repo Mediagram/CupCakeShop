@@ -30,7 +30,7 @@ header form {display: inline;}
 .temp-basket-sum input {text-align: right;}
 .temp-basket div {border-bottom: solid 1px grey;}
 
-.invoice {background-color: white;}
+.invoice {margin-top: 40px; background-color: white;}
 
 .invoice-title h2, .invoice-title h3 {display: inline-block;}
 
