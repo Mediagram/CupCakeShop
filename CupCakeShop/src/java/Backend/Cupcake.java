@@ -1,5 +1,5 @@
 
-package backend;
+package Backend;
 
 public class Cupcake 
 {

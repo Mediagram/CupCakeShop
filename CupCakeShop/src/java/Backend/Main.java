@@ -1,5 +1,5 @@
 
-package backend;
+package Backend;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
