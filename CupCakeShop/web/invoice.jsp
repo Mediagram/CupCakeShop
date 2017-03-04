@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -19,8 +19,11 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <strong>Order for:</strong><br>
-                        Email: <c:out value="${sessionScope.user.getEmail()}"/>
+                        <div class="col-sm-12">
+                            <strong>Order for:</strong><br>
+                            Email: <c:out value="${sessionScope.user.getEmail()}"/>
+                            <br><br>
+                        </div>
                     </div>
                 </div>
             </div>
