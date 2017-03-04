@@ -55,6 +55,7 @@ public class FrontController extends HttpServlet
                 currentUser.addCupcake(split[1], Integer.parseInt(split[0]), 
                         Integer.parseInt(split[2]));
             }
+            request.setAttribute("shoppingContent", cupcakes);
             rd = request.getRequestDispatcher("/shopping_cart.jsp");
         }
         else if ("order".equals(action))
