@@ -1,4 +1,4 @@
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html>
@@ -49,27 +49,33 @@
                                         <c:forEach var="item" items="${invoice.getOrderCupcakes()}">
                                             <tr>
                                                 <td><c:out value="${item.getName()}"/></td>
-                                                    <td class="text-center"><c:out value="${item.getPrice()}"/></td>
-                                                        <td class="text-center"><c:out value="${item.getAmount()}"/></td>
-                                                            <td class="text-right"><c:out value="${item.getPrice() * item.getAmount()}"/></td>
-                                                            </tr>
-                                                            </c:forEach>
-                                                            <tr>
-                                                                <td class="no-line"></td>
-                                                                <td class="no-line"></td>
-                                                                <td class="no-line text-center"><strong>Total</strong></td>
-                                                                <td class="no-line text-right"><c:out value="${invoice.getTotalPrice()}"/></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                                <td class="text-center"><c:out value="${item.getPrice()}"/></td>
+                                                <td class="text-center"><c:out value="${item.getAmount()}"/></td>
+                                                <td class="text-right"><c:out value="${item.getPrice() * item.getAmount()}"/></td>
+                                            </tr>
+                                        </c:forEach>
+                                        <tr>
+                                            <td class="no-line"></td>
+                                            <td class="no-line"></td>
+                                            <td class="no-line text-center"><strong>Total</strong></td>
+                                            <td class="no-line text-right"><c:out value="${invoice.getTotalPrice()}"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                                <c:import url="/inc/footer.jsp"/>
-                                <script src="js/shop.js" ></script>
-                            </body>
-                        </html>
+            <div class="row">
+                <div class="col-sm-12 text-right"><a href="shop.jsp">Shop again</a></div>
+            </div>
+                                        
+                                        
+        </div>
+
+        <c:import url="/inc/footer.jsp"/>
+        <script src="js/shop.js" ></script>
+    </body>
+</html>
