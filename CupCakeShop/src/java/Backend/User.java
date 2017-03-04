@@ -10,7 +10,7 @@ public class User
     private String password;
     private String name;
     private double balance;
-    private ArrayList<Cupcake> shoppingCart;
+    private ArrayList<Cupcake> shoppingCart = new ArrayList();
 
     public User(int id, String email, String name, double balance)
     {

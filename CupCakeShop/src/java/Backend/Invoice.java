@@ -11,7 +11,7 @@ public class Invoice
     {
         for (Cupcake cupcake : shoppingCart)
         {
-            orderStrings.add(cupcake.getName() + " " + cupcake.getAmount() + "x");
+            orderStrings.add(cupcake.getAmount() + "x " + cupcake.getName() + " " + cupcake.getPrice());
             totalPrice += cupcake.getPrice();
         }
     }

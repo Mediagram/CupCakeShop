@@ -20,7 +20,7 @@
                     <hr>
                     <div class="row">
                         <strong>Order for:</strong><br>
-                        Email: cupcakes@cupcakeshop.com
+                        Email: Joe
                     </div>
                 </div>
             </div>
@@ -43,12 +43,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="item" items="${invoice}">
+                                    <c:forEach var="item" items="${invoice.getOrderStrings()}">
                                     <tr>
                                         <td><c:out value="${item.getName()}"></td>
                                         <td class="text-center"><c:out value="${item.getPrice()}"></td>
                                         <td class="text-center"><c:out value="${item.getAmount()}"></td>
-                                        <td class="text-right"><c:out value="${item.getPrice() * item.getAmount()}"></td>
+                                        <td class="text-right"><c:out value="${item.getPrice()}"></td>
                                     </tr>
                                     </c:forEach>
                                     <tr>
@@ -56,7 +56,7 @@
                                         <td class="no-line"></td>
                                         <td class="no-line text-center"><strong>Total</strong></td>
                                         <td class="no-line text-right"><c:out value="${invoice.getTotalprice()}"></td>
-                                        </tr>
+                                    </tr>
                                     </tbody>
                                     </table>
                                 </div>
