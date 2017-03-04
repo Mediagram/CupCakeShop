@@ -28,6 +28,23 @@ function showMessage() {
     setTimeout(function () {
         messageContainer.className += " fade-out";
     }, 3000);
-
-
 }
+
+
+
+
+function setBalanceColor() {
+    var headerBalance = document.getElementById("header-balance");
+    
+    if (headerBalance.value <= 0) {
+        headerBalance.style.color = "red";
+    } else {
+        headerBalance.style.color = "#7FFF00";
+    }
+}
+
+
+
+setBalanceColor();
+
+

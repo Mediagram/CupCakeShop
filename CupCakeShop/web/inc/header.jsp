@@ -5,12 +5,14 @@
 </div>
 
 <header>
-    <div class="container text-right">
+    <div class="container-fluid text-right">
         <c:choose>
             <c:when test="${sessionScope.user != null}">
-                Logged in as: <c:out value="${sessionScope.user.getName()}"/>
-                <form style="display: inline;" method="link" action="./FrontController">
-                    <input name="action" type="submit" value="logout"/>
+                Logged in as: <strong><c:out value="${sessionScope.user.getName()}"/></strong> | 
+                Balance: <strong id="header-balance"><c:out value="${sessionScope.user.getBalance()}"/></strong>
+                    
+                <form action="/FrontController" method="POST">
+                    <input name="action" type="submit" value="logout" class="btn btn-default btn-xs"/>
                 </form>
             </c:when>
             <c:otherwise>
