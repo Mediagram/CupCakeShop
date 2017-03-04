@@ -49,8 +49,11 @@ public class FrontController extends HttpServlet
             for (String str : cupcakes)
             {
                 String[] split = str.split(" ");
-                currentUser.addCupcake(split[1], Integer.parseInt(split[0].replaceAll("[^\\\\d.]", "")), 
-                        Integer.parseInt(split[2].replaceAll("[^\\\\d.]", "")));
+                split[0] = split[0].replace("x", "");
+                split[2] = split[2].replace("kr", "");
+                
+                currentUser.addCupcake(split[1], Integer.parseInt(split[0]), 
+                        Integer.parseInt(split[2]));
             }
             rd = request.getRequestDispatcher("/shopping_cart.jsp");
         }

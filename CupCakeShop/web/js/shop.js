@@ -37,7 +37,7 @@ function addToTempCart() {
     }
 
     // Get combined text
-    var combinedCupCake = selectTop.options[selectTop.selectedIndex].text + " - " + selectBot.options[selectBot.selectedIndex].text;
+    var combinedCupCake = selectTop.options[selectTop.selectedIndex].text + "-" + selectBot.options[selectBot.selectedIndex].text;
 
     // Append input files dynamic
     tempBasketContainer.innerHTML += "<div><input type='text' name='cupcake-fields' class='cupcake-fields' value='" + cakeAmount.value + "x " + combinedCupCake + " " + (cakeAmount.value * totalPrice) + " kr." + "' data-price='"+ (cakeAmount.value * totalPrice) + "'></div>";
