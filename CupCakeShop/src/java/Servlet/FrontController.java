@@ -69,8 +69,7 @@ public class FrontController extends HttpServlet
         
         else if ("order".equals(action))
         {
-            // Do logic stuff with order //
-            // Print invoice //
+            request.setAttribute("invoice", rd);
             rd = request.getRequestDispatcher("/invoice.jsp");
         }
         
