@@ -54,7 +54,6 @@
                     </div>
                 </form>
             </div>
-            
 
             <form action="FrontController" method="POST">
                 <div class="col-sm-12 temp-basket" id="temp-basket-container">
@@ -72,8 +71,6 @@
             
         </div>
         
-        
-
         <c:import url="/inc/footer.jsp"/>
         <script src="js/shop.js" ></script>
     </body>
