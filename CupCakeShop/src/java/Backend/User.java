@@ -9,10 +9,10 @@ public class User
     private String email;
     private String password;
     private String name;
-    private double balance;
-    private ArrayList<Cupcake> shoppingCart = new ArrayList();
+    private int balance;
+    private ArrayList<Cupcake> shoppingCart;
 
-    public User(int id, String email, String name, double balance)
+    public User(int id, String email, String name, int balance)
     {
         this.id = id;
         this.email = email;
@@ -21,7 +21,7 @@ public class User
         shoppingCart = new ArrayList<Cupcake>();
     }
     
-    public void addCupcake(String cupcakeName, int amount, double price)
+    public void addCupcake(String cupcakeName, int amount, int price)
     {
         shoppingCart.add(new Cupcake(cupcakeName, amount, price));
     }
@@ -51,7 +51,7 @@ public class User
         return name;
     }
     
-    public Double getBalance()
+    public int getBalance()
     {
         return balance;
     }

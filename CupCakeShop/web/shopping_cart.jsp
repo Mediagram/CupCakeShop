@@ -16,7 +16,9 @@
 
             <c:forEach var="entry" items="${shoppingContent}">
                 <hr>
-                <c:out value="${entry}"/>
+                <c:out value="${entry.getAmount()}"/> x 
+                <c:out value="${entry.getName()}"/>
+                <c:out value="${entry.getPrice()}"/> kr.
             </c:forEach>
 
             <div class="text-right">

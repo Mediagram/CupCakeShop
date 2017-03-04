@@ -5,9 +5,9 @@ public class Cupcake
 {
     private String name;
     private int amount;
-    private double price;
+    private int price;
 
-    public Cupcake(String name, int amount, double price)
+    public Cupcake(String name, int amount, int price)
     {
         this.name = name;
         this.amount = amount;
@@ -24,7 +24,7 @@ public class Cupcake
         return amount;
     }
     
-    public double getPrice()
+    public int getPrice()
     {
         return price;
     }

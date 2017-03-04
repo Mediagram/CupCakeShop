@@ -36,7 +36,7 @@ public class UserMapper
             if (rs.next())
             {
                 user = new User(rs.getInt("id"), rs.getString("email"),
-                rs.getString("name"), rs.getDouble("balance"));
+                rs.getString("name"), rs.getInt("balance"));
             }
             con.close();
         } catch (SQLException ex)

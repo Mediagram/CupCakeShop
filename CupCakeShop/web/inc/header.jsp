@@ -9,7 +9,7 @@
         <c:choose>
             <c:when test="${sessionScope.user != null}">
                 Logged in as: <strong><c:out value="${sessionScope.user.getName()}"/></strong> | 
-                Balance: <strong id="header-balance"><c:out value="${sessionScope.user.getBalance()}"/></strong>
+                Balance: <strong id="header-balance"><c:out value="${sessionScope.user.getBalance()}"/> kr.</strong>
                     
                 <form action="/FrontController" method="POST">
                     <input name="action" type="submit" value="logout" class="btn btn-default btn-xs"/>
