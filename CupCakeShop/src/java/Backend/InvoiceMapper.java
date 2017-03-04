@@ -6,24 +6,28 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class InvoiceMapper 
+public class InvoiceMapper
 {
-    public void storeInvoice(Invoice orderInvoice, User user)
+    public int storeInvoice(Invoice orderInvoice, User user)
     {
-        String sql = "insert into Invoice (customerid, orderitems, totalprice) values (?,?,?);";
+        String sql1 = "insert into Invoice (customerid) values (?);";
+        String sql2 = "select orderno from Invoice where customerid = ? and orderitems is null;";
+        String sql3 = "insert into Invoice (customerid, orderitems, totalprice) values (?,?,?);";
         Connection con = new DBConnector().getConnection();
         
         try
         {
-            PreparedStatement stmt = con.prepareStatement(sql);
+            PreparedStatement stmt = con.prepareStatement(sql1);
             stmt.setInt(1, user.getId());
-//            stmt.setString(2, orderInvoice.invoiceInfoToString());
-            stmt.setDouble(3, orderInvoice.getTotalPrice());
-            
             stmt.executeUpdate();
+            
+            stmt = con.prepareStatement(sql2);
+            
         } catch (SQLException ex)
         {
             Logger.getLogger(InvoiceMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        return -1;
     }
 }
