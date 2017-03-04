@@ -55,3 +55,8 @@ function addToTempCart() {
     totalSumPrice = 0;
 }
 addButton.addEventListener("click", addToTempCart);
+
+function checkBalance (userBalance, neededBalance)
+{
+    return userBalance >= neededBalance;
+}

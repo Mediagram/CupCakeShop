@@ -16,11 +16,22 @@ public class Invoice
         }
     }
 
+    public String invoiceInfoToString()
+    {
+        StringBuilder sb = new StringBuilder();
+        for (String str : orderStrings)
+        {
+            sb.append(str);
+            sb.append(".");
+        }
+        return sb.toString();
+    }
+    
     public ArrayList<String> getOrderStrings()
     {
         return orderStrings;
     }
-
+    
     public double getTotalPrice()
     {
         return totalPrice;
