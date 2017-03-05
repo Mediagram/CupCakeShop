@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class Invoice
 {
+    private int orderNo;
     private ArrayList<Cupcake> orderCupcakes = new ArrayList();
-    private double totalPrice;
+    private int totalPrice;
     
     public Invoice(ArrayList<Cupcake> shoppingCart)
     {
-        orderCupcakes = shoppingCart;
+        orderCupcakes = (ArrayList<Cupcake>) shoppingCart.clone();
         for (Cupcake cupcake : shoppingCart)
         {
             totalPrice += cupcake.getPrice() * cupcake.getAmount();
@@ -29,13 +30,23 @@ public class Invoice
         }
         return sb.toString();
     }
+
+    public int getOrderNo()
+    {
+        return orderNo;
+    }
+
+    public void setOrderNo(int orderNo)
+    {
+        this.orderNo = orderNo;
+    }
     
     public ArrayList<Cupcake> getOrderCupcakes()
     {
         return orderCupcakes;
     }
     
-    public double getTotalPrice()
+    public int getTotalPrice()
     {
         return totalPrice;
     }

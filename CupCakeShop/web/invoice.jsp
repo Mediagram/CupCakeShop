@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="invoice-title">
-                        <h2>Invoice</h2><h3 class="pull-right">Order #12345</h3>
+                        <h2>Invoice</h2><h3 class="pull-right">Order #<c:out value="${invoice.getOrderNo()}"/></h3>
                     </div>
                     <hr>
                     <div class="row">
@@ -49,16 +49,16 @@
                                         <c:forEach var="item" items="${invoice.getOrderCupcakes()}">
                                             <tr>
                                                 <td><c:out value="${item.getName()}"/></td>
-                                                <td class="text-center"><c:out value="${item.getPrice()}"/></td>
-                                                <td class="text-center"><c:out value="${item.getAmount()}"/></td>
-                                                <td class="text-right"><c:out value="${item.getPrice() * item.getAmount()}"/></td>
+                                                <td class="text-center"><c:out value="${item.getPrice()}"/> kr</td>
+                                                <td class="text-center"><c:out value="${item.getAmount()}"/>x</td>
+                                                <td class="text-right"><c:out value="${item.getPrice() * item.getAmount()}"/> kr</td>
                                             </tr>
                                         </c:forEach>
                                         <tr>
                                             <td class="no-line"></td>
                                             <td class="no-line"></td>
                                             <td class="no-line text-center"><strong>Total</strong></td>
-                                            <td class="no-line text-right"><c:out value="${invoice.getTotalPrice()}"/></td>
+                                            <td class="no-line text-right"><c:out value="${invoice.getTotalPrice()}"/> kr</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-12 text-right"><a href="#" onclick="location.href='index.jsp'">Go to start</a></div>
+                <div class="col-sm-12 text-right"><a href="#" onclick="location.href='FrontController'">Go to start</a></div>
             </div>
                                         
                                         

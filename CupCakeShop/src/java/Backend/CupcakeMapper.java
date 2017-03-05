@@ -3,39 +3,34 @@ package Backend;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Mikkel
  */
-public class CupcakeMapper {
-
-    private Connection con;
-
-    public CupcakeMapper() {
-        con = new DBConnector().getConnection();
-    }
-    
-    public HashMap<String, Double> getCupcakeElements(String table) {
-        
+public class CupcakeMapper 
+{
+    public HashMap<String, Double> getCupcakeElements(String table)
+    {
         String sql = "SELECT * FROM " + table;
         HashMap<String, Double> toppings = new HashMap();
-        
-        try {
+
+        try (Connection con = new DBConnector().getConnection();)
+        {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while (rs.next()) {
+
+            while (rs.next())
+            {
                 toppings.put(rs.getString("type"), rs.getDouble("price"));
             }
-
-        } catch (Exception e) {
-            //con.rollback();
-            System.out.println(e);
+        } catch (Exception ex)
+        {
+            Logger.getLogger(UserMapper.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         return toppings;
     }
 }

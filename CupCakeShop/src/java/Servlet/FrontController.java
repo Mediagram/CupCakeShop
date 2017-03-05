@@ -1,7 +1,9 @@
 package Servlet;
 
+import Backend.Cupcake;
 import Backend.CupcakeMapper;
 import Backend.Invoice;
+import Backend.InvoiceMapper;
 import Backend.UserMapper;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -16,25 +18,27 @@ import Backend.User;
 {
     "/FrontController"
 })
-public class FrontController extends HttpServlet {
 
+public class FrontController extends HttpServlet 
+{
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-
         RequestDispatcher rd = null;
         String action = request.getParameter("action");
+        User currentUser = (User) request.getSession().getAttribute("user");
 
-        if ("login".equals(action))
+        if (action == null && currentUser != null)
         {
-            CupcakeMapper ccm = new CupcakeMapper();
-            request.setAttribute("toppingMap", ccm.getCupcakeElements("Topping"));
-            request.setAttribute("bottomMap", ccm.getCupcakeElements("Bottom"));
+            rd = goToShop(request);
+        }
 
-            User user = new UserMapper().loginUser(request.getParameter("username"), request.getParameter("password"));
-            if (user != null)
+        else if ("login".equals(action))
+        {
+            currentUser = new UserMapper().loginUser(request.getParameter("username"), request.getParameter("password"));
+            if (currentUser != null)
             {
-                request.getSession().setAttribute("user", user);
-                rd = request.getRequestDispatcher("/shop.jsp");
+                request.getSession().setAttribute("user", currentUser);
+                rd = goToShop(request);
             }
             else
             {
@@ -48,26 +52,34 @@ public class FrontController extends HttpServlet {
             String[] cupcakes = request.getParameterValues("cupcake-fields");
             String totalAmount = request.getParameter("sum-up-field");
 
-            User currentUser = (User) request.getSession().getAttribute("user");
-
             for (String str : cupcakes)
             {
                 String[] split = str.split(" ");
                 split[0] = split[0].replace("x", "");
                 split[2] = split[2].replace("kr", "");
+                int amount = Integer.parseInt(split[0]);
+                int price = Integer.parseInt(split[2]) / amount;
 
-                currentUser.addCupcake(split[1], Integer.parseInt(split[0]), Integer.parseInt(split[2]));
+                Cupcake cupcake = new Cupcake(split[1], amount, price);
+                currentUser.addCupcake(cupcake);
             }
             request.setAttribute("shoppingContent", currentUser.getShoppingCart());
-            request.setAttribute("totalAmount", totalAmount);
+            request.getSession().setAttribute("totalAmount", totalAmount);
             rd = request.getRequestDispatcher("/shopping_cart.jsp");
         }
 
         else if ("order".equals(action))
         {
-            User currentUser = (User) request.getSession().getAttribute("user");
-            currentUser.setBalance(currentUser.getBalance() - (int)request.getAttribute("totalprice"));
+            int amount = Integer.parseInt((String)request.getSession().getAttribute("totalAmount"));
+            new UserMapper().changeBalance(currentUser, amount);
+            currentUser.setBalance(currentUser.getBalance() - amount);
+            
             Invoice inv = new Invoice(currentUser.getShoppingCart());
+            currentUser.getShoppingCart().clear();
+            
+            // Stores invoice and sets orderno for this object //
+            inv.setOrderNo(new InvoiceMapper().storeInvoice(inv, currentUser));
+
             request.setAttribute("invoice", inv);
             rd = request.getRequestDispatcher("/invoice.jsp");
         }
@@ -84,6 +96,14 @@ public class FrontController extends HttpServlet {
             rd = request.getRequestDispatcher("/index.jsp");
         }
         rd.forward(request, response);
+    }
+
+    private RequestDispatcher goToShop(HttpServletRequest request)
+    {
+        CupcakeMapper ccm = new CupcakeMapper();
+        request.setAttribute("toppingMap", ccm.getCupcakeElements("Topping"));
+        request.setAttribute("bottomMap", ccm.getCupcakeElements("Bottom"));
+        return request.getRequestDispatcher("/shop.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

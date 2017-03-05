@@ -1,4 +1,3 @@
-
 package Backend;
 
 import java.util.ArrayList;
@@ -7,7 +6,6 @@ public class User
 {
     private int id;
     private String email;
-    private String password;
     private String name;
     private int balance;
     private ArrayList<Cupcake> shoppingCart;
@@ -21,9 +19,9 @@ public class User
         shoppingCart = new ArrayList<Cupcake>();
     }
     
-    public void addCupcake(String cupcakeName, int amount, int price)
+    public void addCupcake(Cupcake cupcake)
     {
-        shoppingCart.add(new Cupcake(cupcakeName, amount, price));
+        shoppingCart.add(cupcake);
     }
     
     public ArrayList<Cupcake> getShoppingCart()
@@ -39,11 +37,6 @@ public class User
     public String getEmail()
     {
         return email;
-    }
-
-    public String getPassword()
-    {
-        return password;
     }
 
     public String getName()

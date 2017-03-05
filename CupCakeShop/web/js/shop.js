@@ -40,35 +40,33 @@ function addToTempCart() {
 
     // Get combined text
     var combinedCupCake = selectTop.options[selectTop.selectedIndex].text + "-" + selectBot.options[selectBot.selectedIndex].text;
+    
+    if (!combinedCupCake.inludes("Select"))
+    {
+        // Append input files dynamic
+        tempBasketContainer.innerHTML += "<div><input type='text' name='cupcake-fields' class='cupcake-fields' value='" + cakeAmount.value + "x " + combinedCupCake + " " + (cakeAmount.value * totalPrice) + " kr." + "' data-price='" + (cakeAmount.value * totalPrice) + "'></div>";
+        //console.log(tempBasketContainer.innerHTML);
 
-    // Append input files dynamic
-    tempBasketContainer.innerHTML += "<div><input type='text' name='cupcake-fields' class='cupcake-fields' value='" + cakeAmount.value + "x " + combinedCupCake + " " + (cakeAmount.value * totalPrice) + " kr." + "' data-price='" + (cakeAmount.value * totalPrice) + "'></div>";
-    //console.log(tempBasketContainer.innerHTML);
-
-    // Loop over appended input fields
-    for (i = 0; i < cupcakeFields.length; i++) {
-        console.log(totalSumPrice += parseInt(cupcakeFields[i].dataset.price));
+        totalSumPrice += (cakeAmount.value * totalPrice);
         sumUpField.value = totalSumPrice;
-    }
 
-    // Reset form and piece price
-    printPrice.innerHTML = "0 kr.";
-    cakeForm.reset();
-    totalSumPrice = 0;
+        // Reset form and piece price
+        printPrice.innerHTML = "0 kr.";
+        cakeForm.reset();
+    }
+    else
+    {
+        alert('Select a topping and/or bottom!');
+    }
 }
+
 addButton.addEventListener("click", addToTempCart);
 
-/*
-function checkBalance(userBalance, neededBalance) {
-    return userBalance >= neededBalance;
-}
-*/
-
 tempBasketForm.onsubmit = function () {
-    
+
     if (parseInt(headerBalance.innerHTML) < sumUpField.value) {
         alert('You have insufficient money!');
         return false;
     }
 
-}
+};

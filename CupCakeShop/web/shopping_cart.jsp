@@ -23,14 +23,13 @@
 
             <div class="text-right">
                 <hr>
-                <h1>Total: <c:out value="${totalAmount}"/> kr.</h1>
+                <h1>Total: <c:out value="${sessionScope.totalAmount}"/> kr.</h1>
             </div>
-            
+
             <form action="FrontController" method="POST">
                 <div class="text-right"><button type="submit" name="action" value="order" class="btn btn-primary">Confirm and pay</button></div>
             </form>
         </div>
-
 
         <c:import url="/inc/footer.jsp"/>
     </body>
