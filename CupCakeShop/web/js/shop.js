@@ -30,27 +30,34 @@ selectBot.addEventListener("change", calcPrice);
 // Put CupCakes in visual temp cart on shop page
 function addToTempCart() {
 
-    // At first time click, show sum up basket and button
-    if (click_count === 0) {
-        tempBasketContainer.style.display = "block";
-        tempBasketBottom.style.display = "block";
-        addToCartButton.style.display = "block";
-        click_count++;
-    }
-
     // Get combined text
     var combinedCupCake = selectTop.options[selectTop.selectedIndex].text + "-" + selectBot.options[selectBot.selectedIndex].text;
 
-    // Append input files dynamic
-    tempBasketContainer.innerHTML += "<div><input type='text' name='cupcake-fields' class='cupcake-fields' value='" + cakeAmount.value + "x " + combinedCupCake + " " + (cakeAmount.value * totalPrice) + " kr." + "' data-price='" + (cakeAmount.value * totalPrice) + "'></div>";
-    //console.log(tempBasketContainer.innerHTML);
+    if (!combinedCupCake.includes("Select"))
+    {
+        // At first time click, show sum up basket and button
+        if (click_count === 0) {
+            tempBasketContainer.style.display = "block";
+            tempBasketBottom.style.display = "block";
+            addToCartButton.style.display = "block";
+            click_count++;
+        }
 
-    totalSumPrice += (cakeAmount.value * totalPrice);
-    sumUpField.value = totalSumPrice;
+        // Append input files dynamic
+        tempBasketContainer.innerHTML += "<div><input type='text' name='cupcake-fields' class='cupcake-fields' value='" + cakeAmount.value + "x " + combinedCupCake + " " + (cakeAmount.value * totalPrice) + " kr." + "' data-price='" + (cakeAmount.value * totalPrice) + "'></div>";
+        //console.log(tempBasketContainer.innerHTML);
 
-    // Reset form and piece price
-    printPrice.innerHTML = "0 kr.";
-    cakeForm.reset();
+        totalSumPrice += (cakeAmount.value * totalPrice);
+        sumUpField.value = totalSumPrice;
+
+        // Reset form and piece price
+        printPrice.innerHTML = "0 kr.";
+        cakeForm.reset();
+    }
+    else
+    {
+        alert("Select a topping and/or bottom");
+    }
 }
 
 addButton.addEventListener("click", addToTempCart);
